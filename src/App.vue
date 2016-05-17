@@ -14,13 +14,11 @@
 </template>
 
 <script>
-import Hello from './components/Hello';
 import Game from './components/Game';
 import TAK from 'tak';
 
 export default {
   components: {
-    Hello,
     Game,
   },
   data() {
