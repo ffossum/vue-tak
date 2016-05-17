@@ -1,0 +1,79 @@
+<template>
+  <div class="board">
+    <div class="rank" v-for="rank in board" data-rank="{{size - $index}}">
+      <rank :rank="rank"></rank>
+    </div>
+  </div>
+</template>
+
+<script>
+import TAK from 'tak';
+import Rank from './board/Rank';
+
+const initialState = TAK.getInitialState(5);
+
+export default {
+  name: 'Game',
+  components: {
+    Rank,
+  },
+  props: {
+    state: {
+      type: Object,
+      default: () => initialState,
+    },
+  },
+  computed: {
+    size() {
+      return this.state.board.length;
+    },
+    board() {
+      return this.state.board.reverse();
+    },
+  },
+};
+</script>
+
+<style>
+  .rank:nth-child(even) .square:nth-child(even) {
+    background-color: #b58863;
+  }
+  .rank:nth-child(odd) .square:nth-child(odd) {
+    background-color: #b58863;
+  }
+  .rank:last-child .square {
+    position: relative;
+  }
+  .rank:last-child .square:before {
+    font-size: 0.8em;
+    color: #aaa;
+    position: absolute;
+    left: calc(50% - 0.25em);
+    bottom: -1.4rem;
+    text-transform: uppercase;
+    content: attr(data-file);
+  }
+</style>
+
+<style scoped>
+  .rank {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .rank:after {
+    font-size: 0.8em;
+    color: #aaa;
+    top: calc(50% - 0.5em);
+    right: -1rem;
+    position: absolute;
+    content: attr(data-rank);
+  }
+  .board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #f0d9b5;
+  }
+</style>
