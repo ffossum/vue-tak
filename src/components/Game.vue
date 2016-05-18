@@ -1,8 +1,6 @@
 <template>
   <div class="board">
-    <div class="rank" v-for="rank in board" data-rank="{{size - $index}}">
-      <rank :rank="rank"></rank>
-    </div>
+    <rank :rank="rank" v-for="rank in board" data-rank="{{size - $index}}"></rank>
   </div>
 </template>
 
@@ -35,45 +33,32 @@ export default {
 </script>
 
 <style>
-  .rank:nth-child(even) .square:nth-child(even) {
-    background-color: #b58863;
-  }
-  .rank:nth-child(odd) .square:nth-child(odd) {
-    background-color: #b58863;
-  }
-  .rank:last-child .square {
-    position: relative;
-  }
-  .rank:last-child .square:before {
-    font-size: 0.8em;
-    color: #aaa;
-    position: absolute;
-    left: calc(50% - 0.25em);
-    bottom: -1.4rem;
-    text-transform: uppercase;
-    content: attr(data-file);
-  }
+.rank:nth-child(even) .square:nth-child(even) {
+  background-color: #b58863;
+}
+.rank:nth-child(odd) .square:nth-child(odd) {
+  background-color: #b58863;
+}
+.rank:last-child .square {
+  position: relative;
+}
+.rank:last-child .square:before {
+  font-size: 0.8em;
+  color: #aaa;
+  position: absolute;
+  left: calc(50% - 0.25em);
+  bottom: -1.4rem;
+  text-transform: uppercase;
+  content: attr(data-file);
+}
 </style>
 
 <style scoped>
-  .rank {
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  .rank:after {
-    font-size: 0.8em;
-    color: #aaa;
-    top: calc(50% - 0.5em);
-    right: -1rem;
-    position: absolute;
-    content: attr(data-rank);
-  }
-  .board {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    background-color: #f0d9b5;
-  }
+  background-color: #f0d9b5;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div v-for="stone in square" track-by="$index">
-    <stone :stone="stone"></stone>
+  <div class="square">
+    <stone :stone="stone" v-for="stone in square" track-by="$index"></stone>
   </div>
 </template>
 
@@ -17,8 +17,12 @@ export default {
 </script>
 
 <style scoped>
-  .stone {
-    border: 1px solid black;
-    margin-top: -10px;
-  }
+.square {
+  height: 100px;
+  width: 100px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 1rem 0.5rem 1rem;
+}
 </style>

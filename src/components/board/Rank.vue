@@ -1,6 +1,6 @@
 <template>
-  <div class="square" v-for="square in rank" data-file="{{files[$index]}}">
-    <square :square="square"></square>
+  <div class="rank">
+    <square :square="square" v-for="square in rank" data-file="{{files[$index]}}"></square>
   </div>
 </template>
 
@@ -22,12 +22,17 @@ export default {
 </script>
 
 <style scoped>
-  .square {
-    height: 100px;
-    width: 100px;
-
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 0 1rem 0.5rem 1rem;
-  }
+.rank {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.rank:after {
+  font-size: 0.8em;
+  color: #aaa;
+  top: calc(50% - 0.5em);
+  right: -1rem;
+  position: absolute;
+  content: attr(data-rank);
+}
 </style>
