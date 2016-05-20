@@ -111,7 +111,6 @@ html {
   color: #2c3e50;
   padding: 1rem;
   font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
