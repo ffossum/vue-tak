@@ -17,3 +17,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.half-move {
+  width: 8rem;
+  display: flex;
+}
+</style>

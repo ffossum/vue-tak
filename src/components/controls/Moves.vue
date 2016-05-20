@@ -1,6 +1,6 @@
 <template>
   <div class="moves">
-    <full-move :move="move" v-for="move in moves"></full-move>
+    <full-move :move="move" :number="$key" v-for="move in moves"></full-move>
   </div>
 </template>
 
