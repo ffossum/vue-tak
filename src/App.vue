@@ -89,6 +89,7 @@ export default {
 .game {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 </style>
