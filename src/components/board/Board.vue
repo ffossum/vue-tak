@@ -6,12 +6,11 @@
 
 <script>
 import TAK from 'tak';
-import Rank from './board/Rank';
+import Rank from './Rank';
 
 const initialState = TAK.getInitialState(5);
 
 export default {
-  name: 'Game',
   components: {
     Rank,
   },

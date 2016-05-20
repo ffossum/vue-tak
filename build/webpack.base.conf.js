@@ -13,6 +13,7 @@ module.exports = {
     filename: '[name].js'
   },
   externals: {
+    lodash: '_',
     tak: 'TAK',
   },
   resolve: {

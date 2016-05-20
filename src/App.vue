@@ -9,17 +9,30 @@
       >
       </textarea>
     </form>
-    <game class="game" :state="state"></game>
+    <div class="game">
+      <board :state="state"></board>
+      <aside v-if="showControls" class="controls">
+        <tags v-if="showTags" :tags="model.tags"></tags>
+        <moves v-if="showMoves" :moves="model.moves"></moves>
+      </aside>
+    </div>
   </article>
 </template>
 
 <script>
-import Game from './components/Game';
+import Board from './components/board/Board';
+import Tags from './components/controls/Tags';
+import Moves from './components/controls/Moves';
 import TAK from 'tak';
+import {
+  isEmpty,
+} from 'lodash';
 
 export default {
   components: {
-    Game,
+    Board,
+    Tags,
+    Moves,
   },
   data() {
     return {
@@ -27,26 +40,57 @@ export default {
     };
   },
   computed: {
-    state() {
+    model() {
       try {
-        return TAK.tpsToJson(this.tps);
+        return TAK.ptnToJson(this.tps);
       } catch (e) {
-        return undefined;
+        return {
+          error: e.message,
+        };
       }
+    },
+    state() {
+      return this.model.initialState;
+    },
+    showTags() {
+      return !isEmpty(this.model.tags);
+    },
+    showMoves() {
+      return !isEmpty(this.model.moves);
+    },
+    showControls() {
+      return this.showTags || this.showMoves;
     },
   },
 };
 </script>
 
 <style scoped>
-
 #tpsInput {
   min-width: 25rem;
   min-height: 4rem;
 }
-.game {
+
+.main {
+}
+
+.board {
   margin-top: 1rem;
 }
+
+.controls {
+  margin-left: 5rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.game {
+  display: flex;
+  align-items: flex-start;
+}
+
 </style>
 
 <style>
@@ -69,7 +113,7 @@ html {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 </style>
