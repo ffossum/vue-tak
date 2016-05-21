@@ -10,7 +10,13 @@
       </textarea>
     </form>
     <div class="game">
-      <board :state="state"></board>
+      <div class="game-board">
+        <board :state="state"></board>
+        <div class="buttons">
+          <button @click="previousMove"> < </button>
+          <button @click="nextMove"> > </button>
+        </div>
+      </div>
       <aside v-if="showControls" class="controls">
         <tags v-if="showTags" :tags="model.tags"></tags>
         <moves v-if="showMoves"
@@ -29,6 +35,11 @@ import Moves from './components/controls/Moves';
 import TAK from 'tak';
 import {
   isEmpty,
+  toArray,
+  take,
+  max,
+  min,
+  size,
 } from 'lodash';
 
 export default {
@@ -84,7 +95,9 @@ export default {
       }
     },
     state() {
-      return this.model.initialState;
+      let movesArray = toArray(this.model.moves);
+      movesArray = take(movesArray, this.selectedMove);
+      return TAK.getState(this.model.initialState, movesArray);
     },
     showTags() {
       return !isEmpty(this.model.tags);
@@ -94,6 +107,14 @@ export default {
     },
     showControls() {
       return this.showTags || this.showMoves;
+    },
+  },
+  methods: {
+    nextMove() {
+      this.selectedMove = min([this.selectedMove + 1, size(this.model.moves) - 1]);
+    },
+    previousMove() {
+      this.selectedMove = max([this.selectedMove - 1, 0]);
     },
   },
 };
@@ -124,6 +145,16 @@ export default {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  margin-top: 3rem;
 }
 
 </style>
