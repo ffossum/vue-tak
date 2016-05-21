@@ -12,7 +12,7 @@
     <div class="game">
       <div class="game-board">
         <board :state="state"></board>
-        <div class="buttons">
+        <div v-if="showMoves" class="buttons">
           <button @click="previousMove"> < </button>
           <button @click="nextMove"> > </button>
         </div>
@@ -156,7 +156,6 @@ export default {
 .buttons {
   margin-top: 3rem;
 }
-
 </style>
 
 <style>
