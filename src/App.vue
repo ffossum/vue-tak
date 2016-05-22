@@ -12,7 +12,9 @@
     </form>
     <div class="game">
       <div class="game-board">
-        <board :state="state"></board>
+        <div class="board-aspect-ratio">
+          <board :state="state"></board>
+        </div>
       </div>
       <aside v-if="showControls" class="controls">
         <tags v-if="showTags" :tags="model.tags"></tags>
@@ -114,10 +116,6 @@ export default {
 .main {
 }
 
-.board {
-  margin-top: 1rem;
-}
-
 .controls {
   margin-left: 5rem;
   align-self: stretch;
@@ -130,12 +128,23 @@ export default {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .game-board {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  width: 100%;
+  max-width: 600px;
+  margin-right: 1rem;
+}
+
+.board-aspect-ratio {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
 }
 
 .buttons {
