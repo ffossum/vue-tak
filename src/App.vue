@@ -109,15 +109,15 @@ export default {
 
 <style scoped>
 #tpsInput {
-  min-width: 25rem;
+  min-width: 10rem;
   min-height: 4rem;
+  max-width: 90vw;
 }
 
 .main {
 }
 
 .controls {
-  margin-left: 5rem;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -126,9 +126,10 @@ export default {
 
 .game {
   display: flex;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 100%;
+  width: 90vw;
 }
 
 .game-board {
