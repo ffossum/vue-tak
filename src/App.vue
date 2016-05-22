@@ -14,8 +14,10 @@
       <div class="game-board">
         <board :state="state"></board>
         <div v-if="showMoves" class="buttons">
+          <button @click="goToBeginning"> |< </button>
           <button @click="previousMove"> < </button>
           <button @click="nextMove"> > </button>
+          <button @click="goToEnd"> >| </button>
         </div>
       </div>
       <aside v-if="showControls" class="controls">

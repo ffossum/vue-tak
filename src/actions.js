@@ -16,6 +16,14 @@ export function previousMove({ dispatch }) {
   dispatch('PREVIOUS_MOVE');
 }
 
+export function goToBeginning({ dispatch }) {
+  dispatch('GO_TO_MOVE', 0);
+}
+
 export function goToMove({ dispatch }, moveNumber) {
   dispatch('GO_TO_MOVE', moveNumber);
+}
+
+export function goToEnd({ dispatch }) {
+  dispatch('GO_TO_END');
 }

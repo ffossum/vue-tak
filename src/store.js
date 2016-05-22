@@ -31,6 +31,12 @@ const mutations = {
   PREVIOUS_MOVE(state) {
     state.selectedMove = max([state.selectedMove - 1, 0]);
   },
+  GO_TO_MOVE(state, moveNumber) {
+    state.selectedMove = moveNumber;
+  },
+  GO_TO_END(state) {
+    state.selectedMove = size(state.model.moves);
+  },
 };
 
 export default new Vuex.Store({
