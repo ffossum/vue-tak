@@ -111,7 +111,7 @@ export default {
   },
   methods: {
     nextMove() {
-      this.selectedMove = min([this.selectedMove + 1, size(this.model.moves) - 1]);
+      this.selectedMove = min([this.selectedMove + 1, size(this.model.moves)]);
     },
     previousMove() {
       this.selectedMove = max([this.selectedMove - 1, 0]);
