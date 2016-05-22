@@ -118,7 +118,7 @@ export default {
 }
 
 .controls {
-  align-self: stretch;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -130,6 +130,7 @@ export default {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 90vw;
+  max-width: 1050px;
 }
 
 .game-board {

@@ -14,3 +14,19 @@
    },
  };
 </script>
+
+<style scoped>
+dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+dt {
+  width: 33%;
+  font-weight: bold;
+}
+dd {
+  margin: 0;
+  width: 67%;
+}
+</style>
