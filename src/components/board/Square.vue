@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .square {
+  height: 100%;
 }
 
 .square-padder {
@@ -36,9 +37,22 @@ export default {
 
   padding: 0 16% 9% 16%;
 }
-
+.size3 {
+  width: calc(100% / 3);
+}
+.size4 {
+  width: calc(100% / 4);
+}
 .size5 {
-  width: 20%;
-  height: 100%;
+  width: calc(100% / 5);
+}
+.size6 {
+  width: calc(100% / 6);
+}
+.size7 {
+  width: calc(100% / 7);
+}
+.size8 {
+  width: calc(100% / 8);
 }
 </style>

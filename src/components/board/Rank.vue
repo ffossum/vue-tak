@@ -46,7 +46,22 @@ export default {
   content: attr(data-rank);
 }
 
+.size3 {
+  height: calc(100% / 3);
+}
+.size4 {
+  height: calc(100% / 4);
+}
 .size5 {
-  height: 20%;
+  height: calc(100% / 5);
+}
+.size6 {
+  height: calc(100% / 6);
+}
+.size7 {
+  height: calc(100% / 7);
+}
+.size8 {
+  height: calc(100% / 8);
 }
 </style>
