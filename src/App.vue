@@ -1,7 +1,7 @@
 <template>
   <article id="app">
     <form>
-      <div><label for="tpsInput">Paste TPS here</label></div>
+      <div><label for="tpsInput">Paste TPS/PTN here</label></div>
       <textarea
         v-model="ptn"
         @input="updateModel"

@@ -19,35 +19,37 @@ export default {
 
 <style scoped>
 .stone {
-    border: 1px solid #333;
-    border-radius: 3px;
-    margin-top: -1rem;
-    height: 1.5rem;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
-      0 3px 1px -2px rgba(0,0,0,.2),
-      0 1px 5px 0 rgba(0,0,0,.12);
-  }
-  .white {
-    background-color: white;
-    transform: translateX(-0.25rem);
-  }
-  .black {
-    color: white;
-    background-color: #666;
-    transform: translateX(0.25rem);
-  }
+  border: 1px solid #333;
+  border-radius: 3px;
+  margin-top: -23%;
+  height: 25%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
+    0 3px 1px -2px rgba(0,0,0,.2),
+    0 1px 5px 0 rgba(0,0,0,.12);
+}
+.white {
+  background-color: white;
+  transform: translateX(-10%);
+}
+.black {
+  color: white;
+  background-color: #666;
+  transform: translateX(10%);
+}
 
-  .standing {
-    height: 2rem;
-    margin-left: 1.25rem;
-    margin-right: 1.25rem;
-  }
-  .cap {
-    height: 2rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    border-top-left-radius: 5rem;
-    border-top-right-radius: 5rem;
-  }
+.standing {
+  height: 35%;
+  margin-left: 30%;
+  margin-right: 30%;
+  transform: translateX(0);
+}
+.cap {
+  height: 34%;
+  width: 64%;
+  transform: translateX(0);
+  align-self: center;
+  border-top-left-radius:  100000rem;
+  border-top-right-radius: 100000rem;
+}
 </style>
 

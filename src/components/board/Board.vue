@@ -54,6 +54,9 @@ export default {
 
 <style scoped>
 .board {
+  width: 50vw;
+  height: 50vw;
+
   display: flex;
   flex-direction: column;
   justify-content: center;

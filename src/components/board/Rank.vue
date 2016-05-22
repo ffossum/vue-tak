@@ -1,6 +1,11 @@
 <template>
-  <div class="rank">
-    <square :square="square" v-for="square in rank" data-file="{{files[$index]}}"></square>
+  <div class="{{className}}">
+    <square
+      v-for="square in rank"
+      :square="square"
+      :board-size="rank.length"
+      data-file="{{files[$index]}}"
+    ></square>
   </div>
 </template>
 
@@ -18,6 +23,11 @@ export default {
   props: {
     rank: Array,
   },
+  computed: {
+    className() {
+      return `rank size${this.rank.length}`;
+    },
+  },
 };
 </script>
 
@@ -34,5 +44,9 @@ export default {
   right: -1rem;
   position: absolute;
   content: attr(data-rank);
+}
+
+.size5 {
+  height: 20%;
 }
 </style>
