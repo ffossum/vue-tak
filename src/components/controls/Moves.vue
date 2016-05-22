@@ -24,7 +24,7 @@ export default {
         comment: this.comments[key],
       }));
       forEach(arr, (fullMove, index) => {
-        assign(fullMove, { index });
+        assign(fullMove, { moveNumber: index + 1 });
       });
 
       return groupBy(arr, fullMove => fullMove.key.split(' ')[0]);
