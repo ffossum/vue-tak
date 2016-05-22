@@ -3,7 +3,8 @@
     <form>
       <div><label for="tpsInput">Paste TPS here</label></div>
       <textarea
-        v-model="tps"
+        v-model="ptn"
+        @input="updateModel"
         id="tpsInput"
         placeholder='[TPS "x5/x5/x5/x5/x5 1 1"]'
       >
@@ -33,13 +34,12 @@ import Board from './components/board/Board';
 import Tags from './components/controls/Tags';
 import Moves from './components/controls/Moves';
 import TAK from 'tak';
+import * as actions from './actions';
+
 import {
   isEmpty,
   toArray,
   take,
-  max,
-  min,
-  size,
 } from 'lodash';
 
 export default {
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      tps: `[Event "First Video for Tak Strategy"]
+      ptn: `[Event "First Video for Tak Strategy"]
 [Site "PlayTak.com"]
 [Date "2015.11.15"]
 [Round "1"]
@@ -81,19 +81,16 @@ export default {
 20. 2b4> e5
 21. 4d5> 1c5-
 22. Sd5 3c4>12 0-R`,
-      selectedMove: 0,
     };
   },
-  computed: {
-    model() {
-      try {
-        return TAK.ptnToJson(this.tps);
-      } catch (e) {
-        return {
-          error: e.message,
-        };
-      }
+  vuex: {
+    getters: {
+      model: state => state.model,
+      selectedMove: state => state.selectedMove,
     },
+    actions,
+  },
+  computed: {
     state() {
       let movesArray = toArray(this.model.moves);
       movesArray = take(movesArray, this.selectedMove);
@@ -107,14 +104,6 @@ export default {
     },
     showControls() {
       return this.showTags || this.showMoves;
-    },
-  },
-  methods: {
-    nextMove() {
-      this.selectedMove = min([this.selectedMove + 1, size(this.model.moves)]);
-    },
-    previousMove() {
-      this.selectedMove = max([this.selectedMove - 1, 0]);
     },
   },
 };
