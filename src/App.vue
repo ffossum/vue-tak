@@ -17,7 +17,7 @@
         </div>
       </div>
       <aside v-if="showControls" class="controls">
-        <tags v-if="showTags" :tags="model.tags"></tags>
+        <tags v-if="showTags" :tags="tags"></tags>
         <moves v-if="showMoves"
           :moves="model.moves"
           :comments="model.comments"
@@ -38,6 +38,7 @@ import {
   isEmpty,
   toArray,
   take,
+  omit,
 } from 'lodash';
 
 export default {
@@ -95,13 +96,16 @@ export default {
       return TAK.getState(this.model.initialState, movesArray);
     },
     showTags() {
-      return !isEmpty(this.model.tags);
+      return !isEmpty(this.tags);
     },
     showMoves() {
       return !isEmpty(this.model.moves);
     },
     showControls() {
       return this.showTags || this.showMoves;
+    },
+    tags() {
+      return omit(this.model.tags, 'size');
     },
   },
 };
@@ -118,6 +122,8 @@ export default {
 }
 
 .controls {
+  margin-left: 1rem;
+  margin-right: 1rem;
   width: 20rem;
   display: flex;
   flex-direction: column;
@@ -141,6 +147,7 @@ export default {
   width: 100%;
   max-width: 600px;
   margin-right: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .board-aspect-ratio {
