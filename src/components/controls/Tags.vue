@@ -24,6 +24,7 @@ dl {
 dt {
   width: 33%;
   font-weight: bold;
+  text-transform: capitalize;
 }
 dd {
   margin: 0;
