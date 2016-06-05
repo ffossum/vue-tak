@@ -1,5 +1,5 @@
 <template>
-  <div class="game-info">
+  <div class="box game-info">
     <div class="game-info-players">
       <div>
         <div class="color white" title="White"></div> {{whitePlayer}}

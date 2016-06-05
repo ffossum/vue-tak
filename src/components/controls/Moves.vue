@@ -1,12 +1,22 @@
 <template>
-  <div class="moves">
+  <div class="box moves">
     <div class="buttons">
-      <button @click="goToBeginning"> |< </button>
-      <button @click="previousMove"> < </button>
-      <button @click="nextMove"> > </button>
-      <button @click="goToEnd"> >| </button>
+      <button class="button is-light" @click="goToBeginning">
+        <i class="fa fa-fast-backward" aria-hidden="true"></i>
+      </button>
+      <button class="button is-light" @click="previousMove">
+        <i class="fa fa-step-backward" aria-hidden="true"></i>
+      </button>
+      <button class="button is-light" @click="nextMove">
+        <i class="fa fa-step-forward" aria-hidden="true"></i>
+      </button>
+      <button class="button is-light" @click="goToEnd">
+        <i class="fa fa-fast-forward" aria-hidden="true"></i>
+      </button>
     </div>
-    <full-move :move="move" :number="$key" v-for="move in fullMoves"></full-move>
+    <div class="move-list">
+      <full-move :move="move" :number="$key" v-for="move in fullMoves"></full-move>
+    </div>
   </div>
 </template>
 
@@ -48,15 +58,25 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+}
+
+.move-list {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 20rem;
+  overflow-y: scroll;
 }
 
 .buttons {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .buttons button {
-  width: 25%;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 </style>
