@@ -7,6 +7,7 @@ import {
   max,
   size,
 } from 'lodash';
+import scrollMiddleware from './scrollMiddleware';
 
 Vue.use(Vuex);
 
@@ -42,4 +43,5 @@ const mutations = {
 export default new Vuex.Store({
   state: initialState,
   mutations,
+  middlewares: [scrollMiddleware],
 });

@@ -1,5 +1,5 @@
 <template>
-  <a href="" class="{{className}}" @click="handleClick" :disabled="active">
+  <a href="" class="{{className}}" @click="handleClick" :disabled="active" :data-move-number="move.moveNumber">
     {{text}}
   </a>
 </template>
@@ -42,8 +42,13 @@ export default {
   color: black;
   text-decoration: none;
   width: 8rem;
+  padding-left: 0.25rem;
   display: flex;
   border: none;
+}
+
+.half-move:hover {
+  background-color: #d3dce9;
 }
 
 .half-move.active {
