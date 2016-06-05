@@ -25,5 +25,10 @@ export default {
 
 .move-number {
   width: 4rem;
+  font-size: 0.8rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.25rem;
+  color: #aaa;
 }
 </style>
